@@ -14,7 +14,7 @@ Sur Debian Stretch Mate
     $ echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
     $ exec $SHELL
     $ git clone https://github.com/rbenv/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
-    $ rbenv install 2.1.0
+    $ rbenv install 2.1.10
     $ rbenv global 2.1.10
     $ ruby -v #pour vérifier la version de ruby
     $ su 
