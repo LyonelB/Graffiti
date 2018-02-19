@@ -3,7 +3,7 @@
 Sur Debian Stretch Mate
 
     $ su
-    $ apt-get install git-core curl zlib1g-dev build-essential libssl1.0-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
+    $ apt-get install git-core curl zlib1g-dev build-essential libssl1.0-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev wput ecatools
     $ exit
     $ cd
     $ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
@@ -17,12 +17,9 @@ Sur Debian Stretch Mate
     $ rbenv install 2.1.10
     $ rbenv global 2.1.10
     $ ruby -v #pour vérifier la version de ruby
-    $ su 
-    $ apt-get install wput
-    $ apt-get install ecatools
-    $ exit
     $ gem install tryphon-pige-client
     $ wget https://raw.githubusercontent.com/LyonelB/Graffiti/master/Tryphone-pige-client/scheduler_chunks_daily.rb
+    $ mkdir /home/graffiti/Bureau/podcast
     
 # Crontab
 
