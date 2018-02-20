@@ -28,3 +28,30 @@ Reprenez la configuration
     $ sudo reboot
 
 Une fois redemarré, vous pourrez accéder à l'interface de supervisor via http://ip.du.rasp.berry.pi:9300
+
+### Superlance
+
+    $ sudo apt-get install python-pip
+    $ sudo pip install superlance
+    $ sudo nano /etc/supervisor/conf.d/fatalmailbatch.conf
+    
+Ajoutez le texte suivant    
+    
+    # /etc/supervisor/conf.d/fatalmailbatch.conf 
+
+    [eventlistener:fatalmailbatch]
+    command=fatalmailbatch 
+      --toEmail="admin@team.com" 
+      --fromEmail="supervisor@app.com" 
+      --smtpHost="smtp.mailgun.org" 
+      --userName="username" 
+      --password="password"
+    events=PROCESS_STATE,TICK_60
+    autostart=true
+    autorestart=true
+
+Reprenez la configuration 
+
+    $ sudo supervisorctl reread
+    $ supervisorctl add fatalmailbatch
+    $ supervisorctl start fatalmailbatch
