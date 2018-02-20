@@ -53,5 +53,5 @@ Ajoutez le texte suivant
 Reprenez la configuration 
 
     $ sudo supervisorctl reread
-    $ supervisorctl add fatalmailbatch
-    $ supervisorctl start fatalmailbatch
+    $ sudo supervisorctl add fatalmailbatch
+    $ sudo supervisorctl start fatalmailbatch
