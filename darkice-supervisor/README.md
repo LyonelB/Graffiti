@@ -20,6 +20,10 @@ Ajoutez les lignes suivantes
     username = user ; Auth username
     password = pass ; Auth password
     
+    [eventlistener:supermail]
+    command=python /usr/local/bin/supermail.py -a -m mail@domain.com -o "[DARKICE]"
+    events=PROCESS_STATE
+    
 Reprenez la configuration
 
     $ sudo /etc/init.d/supervisor restart
@@ -27,8 +31,29 @@ Reprenez la configuration
     $ sudo supervisorctl update
     $ sudo reboot
 
-Une fois redemarré, vous pourrez accéder à l'interface de supervisor via http://ip.du.rasp.berry.pi:9300
+Une fois redemarré, vous pourrez accéder à l'interface de supervisor via http://localhost:9300
 
+## Monitoring
+
+    $ sudo nano /etc/supervisor/supervisord.conf
+
+Ajoutez les lignes suivantes
+
+    [eventlistener:supermail]
+    command=python /usr/local/bin/supermail.py -a -m mail@domain.com -o "[DARKICE]"
+    events=PROCESS_STATE
+
+Reprenez l'installation
+   
+    $ sudo apt-get install sendmail
+    $ cd /usr/local/bin
+    $ sudo wget https://raw.githubusercontent.com/LyonelB/Graffiti/master/darkice-supervisor/supermail.py
+    $ cd
+    $ sudo /etc/init.d/supervisor restart
+    $ sudo supervisorctl reread
+    $ sudo supervisorctl update
+
+## A SUPPRIMER
 ### Superlance
 
     $ sudo apt-get install python-pip
