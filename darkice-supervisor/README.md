@@ -37,7 +37,7 @@ Une fois redemarré, vous pourrez accéder à l'interface de supervisor via http
 
     $ sudo nano /etc/supervisor/supervisord.conf
 
-Ajoutez les lignes suivantes
+Ajoutez les lignes suivantes en modifiant "mail@domain.com" par votre adresse mail
 
     [eventlistener:supermail]
     command=python /usr/local/bin/supermail.py -a -m mail@domain.com -o "[DARKICE]"
