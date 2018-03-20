@@ -1,4 +1,19 @@
-    $ sudo apt-get install autoreconf libtool libtool-bin
+    $ sudo apt-get update
+    $ sudo apt-get upgrade
+    $ sudo apt-get install opam m4
+    $ sudo adduser liquidsoap
+    $ sudo adduser liquidsoap audio
+    $ su liquidsoap
+    $ cd
+    $ opam init #répondre "y"
+    $ exit
+    $ su liquidsoap
+    $ opam update
+    $ opam install depext    
+    $ exit
+    
+    
+    $ sudo apt-get install dh-autoreconf libtool libtool-bin
     $ git clone https://github.com/mstorsjo/fdk-aac.git
     $ cd fdk-aac
     $ ./autogen.sh --host=arm-unknown-linux-gnueabi --enable-static --enable-shared
@@ -7,10 +22,21 @@
     $ sudo make install
     $ sudo ldconfig
     $ cd
+    $ su liquidsoap
+   
+Attention à ne pas installer les paquets à cette étape → répondre "non"   
+   
+    $ opam depext taglib mad lame vorbis cry pulseaudio liquidsoap
+    $ exit
+    $ sudo apt-get install libmp3lame-ocaml-dev libtaglib-ocaml-dev libalsa-ocaml-dev libpulse-ocaml-dev libmad-ocaml-dev libcry-ocaml-dev libvorbis-ocaml-dev libogg-ocaml-dev libopus-ocaml-dev
+    $ su liquidsoap
+    $ opam install lame pulseaudio mad alsa taglib cry opus liquidsoap fdkaac
+    $ exit
+    $ sudo ln -s /home/liquidsoap/.opam/system/bin/liquidsoap /usr/bin/liquidsoap
+    $ sudo mkdir /etc/liquidsoap
+    $ sudo nano /etc/liquidsoap/radio.liq
 
-    $ opam install fdkaac
-
-    !/usr/bin/liquidsoap
+    #!/usr/bin/liquidsoap
     set("log.file.path", "/var/log/supervisor/liquidsoap.log")
 
     stream = input.alsa(device="plughw:1,0")
@@ -26,4 +52,38 @@
     genre="alternative",
     stream)
 
+    $ sudo chmod +x /etc/liquidsoap/radio.liq
+    $ sudo touch /var/log/supervisor/liquidsoap.log
+    $ sudo chown -R pi /var/log/supervisor/liquidsoap.log
 
+### Supervisor
+
+    $ sudo apt-get install supervisor
+    $ mkdir config && cd config
+    $ mkdir supervisor && cd supervisor
+    $ wget https://raw.githubusercontent.com/LyonelB/Graffiti/master/Liquidsoap/liquidsoap.conf
+    $ cd
+    $ sudo ln -s /home/pi/config/supervisor/liquidsoap.conf /etc/supervisor/conf.d/liquidsoap.conf
+    $ sudo nano /etc/supervisor/supervisord.conf    
+
+Ajoutez les lignes suivantes
+
+    [inet_http_server]
+    port = 9300
+    username = user ; Auth username
+    password = pass ; Auth password
+
+    [eventlistener:supermail]
+    command=python /usr/local/bin/supermail.py -a -m mail@domain.com -o "[Liquidsoap]"
+    events=PROCESS_STATE
+
+### Supermail
+
+    $ sudo apt-get install sendmail
+    $ cd /usr/local/bin
+    $ sudo wget https://raw.githubusercontent.com/LyonelB/Graffiti/master/darkice-supervisor/supermail.py
+    $ cd
+    $ sudo /etc/init.d/supervisor restart
+    $ sudo supervisorctl reread
+    $ sudo supervisorctl update
+    $ sudo reboot
