@@ -21,13 +21,10 @@
     $ su liquidsoap
     $ opam update
     $ opam install depext    
-    $ exit
-    $ cd
-    $ su liquidsoap
    
 Attention à ne pas installer les paquets à cette étape → répondre "non"   
    
-    $ opam depext taglib mad lame vorbis cry pulseaudio liquidsoap
+    $ opam depext taglib mad lame vorbis cry pulseaudio liquidsoap fdkaac
     $ exit
     $ sudo apt-get install libmp3lame-ocaml-dev libtaglib-ocaml-dev libalsa-ocaml-dev libpulse-ocaml-dev libmad-ocaml-dev libcry-ocaml-dev libvorbis-ocaml-dev libogg-ocaml-dev libopus-ocaml-dev
     $ su liquidsoap
