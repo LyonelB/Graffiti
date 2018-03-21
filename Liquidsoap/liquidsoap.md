@@ -51,8 +51,6 @@ Attention à ne pas installer les paquets à cette étape → répondre "non"
     stream)
 
     $ sudo chmod +x /etc/liquidsoap/radio.liq
-    $ sudo touch /var/log/supervisor/liquidsoap.log
-    $ sudo chown -R pi /var/log/supervisor/liquidsoap.log
 
 ### Supervisor
 
@@ -84,4 +82,5 @@ Ajoutez les lignes suivantes
     $ sudo /etc/init.d/supervisor restart
     $ sudo supervisorctl reread
     $ sudo supervisorctl update
+    $ sudo chown -R pi /var/log/supervisor/liquidsoap.log    
     $ sudo reboot
