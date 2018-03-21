@@ -35,8 +35,8 @@ Attention à ne pas installer les paquets à cette étape → répondre "non"
     $ sudo nano /etc/liquidsoap/radio.liq
 
     #!/usr/bin/liquidsoap
-    set("log.file.path", "/var/log/supervisor/liquidsoap.log")
-
+    set("log.file.path", "/var/log/supervisor/liquidsoap.log")  
+    set("alsa.alsa_buffer", 3)
     stream = input.alsa(device="plughw:1,0")
 
     output.icecast(%fdkaac(channels=2, samplerate=48000, bitrate=64,afterburner=false, transmux="adts", sbr_mode=false,),
