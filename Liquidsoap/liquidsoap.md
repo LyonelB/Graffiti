@@ -1,5 +1,16 @@
     $ sudo apt-get update
     $ sudo apt-get upgrade
+    $ sudo apt-get install dh-autoreconf libtool libtool-bin    
+    $ mkdir src && cd src
+    $ wget -O fdk-aac.tar.gz https://github.com/mstorsjo/fdk-aac/tarball/master 
+    $ tar xzvf fdk-aac.tar.gz 
+    $ cd mstorsjo-fdk-aac* 
+    $ autoreconf -fiv 
+    $ ./configure --enable-shared 
+    $ make -j2 
+    $ sudo make install
+    $ sudo ldconfig
+    $ cd
     $ sudo apt-get install opam m4
     $ sudo adduser liquidsoap
     $ sudo adduser liquidsoap audio
@@ -11,16 +22,6 @@
     $ opam update
     $ opam install depext    
     $ exit
-    
-    
-    $ sudo apt-get install dh-autoreconf libtool libtool-bin
-    $ git clone https://github.com/mstorsjo/fdk-aac.git
-    $ cd fdk-aac
-    $ ./autogen.sh --host=arm-unknown-linux-gnueabi --enable-static --enable-shared
-    $ ./configure --enable-shared --enable-static
-    $ make -j4
-    $ sudo make install
-    $ sudo ldconfig
     $ cd
     $ su liquidsoap
    
