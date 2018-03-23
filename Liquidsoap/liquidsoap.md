@@ -1,13 +1,12 @@
     $ sudo apt-get update
     $ sudo apt-get upgrade
-    $ sudo apt-get install dh-autoreconf libtool libtool-bin    
+    $ sudo apt-get install dh-autoreconf libtool libtool-bin git   
     $ mkdir src && cd src
-    $ wget -O fdk-aac.tar.gz https://github.com/mstorsjo/fdk-aac/tarball/master 
-    $ tar xzvf fdk-aac.tar.gz 
-    $ cd mstorsjo-fdk-aac* 
-    $ autoreconf -fiv 
-    $ ./configure --enable-shared 
-    $ make -j2 
+    $ git clone https://github.com/Opendigitalradio/fdk-aac.git
+    $ cd fdk-aac
+    $ ./bootstrap
+    $ ./configure
+    $ make
     $ sudo make install
     $ sudo ldconfig
     $ cd
@@ -84,5 +83,4 @@ Ajoutez les lignes suivantes
     $ sudo /etc/init.d/supervisor restart
     $ sudo supervisorctl reread
     $ sudo supervisorctl update
-    $ sudo chown -R pi /var/log/supervisor/liquidsoap.log    
     $ sudo reboot
