@@ -34,7 +34,7 @@ Attention à ne pas installer les paquets à cette étape → répondre "non"
     $ sudo nano /etc/liquidsoap/radio.liq
 
     #!/usr/bin/liquidsoap
-    set("log.file.path", "/tmp/basic-radio.log")
+    set("log.file.path", "/log/radio.log")
     set("alsa.alsa_buffer", 3)
 
     stream = input.alsa(device="plughw:1,0, bufferize = true")
@@ -65,8 +65,10 @@ Attention à ne pas installer les paquets à cette étape → répondre "non"
     stream)
 
     $ sudo chmod +x /etc/liquidsoap/radio.liq
-    $ sudo touch /tmp/basic-radio.log
-    $ sudo chown -R pi /tmp/basic-radio.log
+    $ sudo mkdir /log/
+    $ sudo chmod 777 /log/
+    $ sudo touch /log/radio.log
+    $ sudo chown -R pi /log/radio.log
 
 ### Supervisor
 
