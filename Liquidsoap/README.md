@@ -42,7 +42,7 @@ Attention à ne pas installer les paquets à cette étape → répondre "non"
     stream = normalize(stream, target = -1.0, threshold = -65.0)
     stream = limit(stream, threshold = -0.2, attack = 2.0, release = 25.0, rms_window = 0.02)
 
-    output.icecast(%fdkaac(channels=2, samplerate=48000, bitrate=128, afterburner=false, transmux="adts", sbr_mode=false,),
+    output.icecast(%fdkaac(channels=2, samplerate=48000, bitrate=128, afterburner=false, transmux="adts", sbr_mode=true, aot="mpeg4_he_aac_v2",),
     host = "xxxxxxxx",
     port = 8000,
     password = "xxxxxx",
