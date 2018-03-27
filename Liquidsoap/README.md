@@ -36,6 +36,7 @@ Attention à ne pas installer les paquets à cette étape → répondre "non"
     #!/usr/bin/liquidsoap
     set("log.file.path", "/log/radio.log")
     set("alsa.alsa_buffer", 3)
+    set("frame.audio.samplerate",48000)
 
     stream = input.alsa(device="plughw:1,0, bufferize = true")
     stream = compress(stream, attack = 5.0, gain = 8.0, knee = 10.0, ratio = 5.0, release = 100.0, threshold = -18.0, rms_window = 0.7)
