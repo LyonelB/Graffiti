@@ -27,6 +27,7 @@
     $ sudo apt-get install libmp3lame-ocaml-dev libtaglib-ocaml-dev libalsa-ocaml-dev libpulse-ocaml-dev libmad-ocaml-dev libcry-ocaml-dev libvorbis-ocaml-dev libogg-ocaml-dev libopus-ocaml-dev ladspa-sdk
     $ su liquidsoap
     $ opam install lame pulseaudio mad alsa taglib cry opus liquidsoap fdkaac ladspa
+    <y>
     $ exit
     $ sudo ln -s /home/liquidsoap/.opam/system/bin/liquidsoap /usr/bin/liquidsoap
     $ sudo mkdir /etc/liquidsoap
