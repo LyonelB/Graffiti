@@ -11,5 +11,7 @@ Se rendre à l'adresse suivante https://apps.twitter.com/app/new
     $ mkdir SillyTweeter
     $ cd SillyTweeter
     $ sudo nano SillyTweeter.py
+    
+https://apps.twitter.com/app/12993870/keys
   
     $ sudo chmod +x SillyTweeter.py
