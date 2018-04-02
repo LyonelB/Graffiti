@@ -21,12 +21,12 @@
     $ su liquidsoap
     $ opam update
     $ opam install depext
-    $ opam depext taglib mad lame vorbis cry pulseaudio liquidsoap fdkaac ladspa
+    $ opam depext taglib mad lame vorbis cry pulseaudio liquidsoap fdkaac ladspa shine
     <n>
     $ exit
-    $ sudo apt-get install libmp3lame-ocaml-dev libtaglib-ocaml-dev libalsa-ocaml-dev libpulse-ocaml-dev libmad-ocaml-dev libcry-ocaml-dev libvorbis-ocaml-dev libogg-ocaml-dev libopus-ocaml-dev ladspa-sdk
+    $ sudo apt-get install libmp3lame-ocaml-dev libtaglib-ocaml-dev libalsa-ocaml-dev libpulse-ocaml-dev libmad-ocaml-dev libcry-ocaml-dev libvorbis-ocaml-dev libogg-ocaml-dev libopus-ocaml-dev ladspa-sdk libshine-dev
     $ su liquidsoap
-    $ opam install lame pulseaudio mad alsa taglib cry opus liquidsoap fdkaac ladspa
+    $ opam install lame pulseaudio mad alsa taglib cry opus liquidsoap fdkaac ladspa shine
     <y>
     $ exit
     $ sudo ln -s /home/liquidsoap/.opam/system/bin/liquidsoap /usr/bin/liquidsoap
@@ -35,10 +35,9 @@
 
     #!/usr/bin/liquidsoap
     set("log.file.path", "/log/radio.log")
-    set("alsa.alsa_buffer", 3)
     set("frame.audio.samplerate",48000)
 
-    stream = input.alsa(device="plughw:1,0, bufferize = true")
+    stream = input.alsa(device="plughw:1,0", bufferize = true)
     stream = compress(stream, attack = 5.0, gain = 8.0, knee = 10.0, ratio = 5.0, release = 100.0, threshold = -18.0, rms_window = 0.7)
     stream = normalize(stream, target = -1.0, threshold = -65.0)
     stream = limit(stream, threshold = -0.2, attack = 2.0, release = 25.0, rms_window = 0.02)
