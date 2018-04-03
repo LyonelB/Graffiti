@@ -53,7 +53,7 @@
     genre="alternative",
     stream)
 
-    output.icecast(%mp3(bitrate=128, samplerate=48000,),
+    output.icecast(%shine(bitrate=128, samplerate=48000,),
     host = "xxxxxxxxxx",
     port = 8000,
     password = "xxxxxx",
