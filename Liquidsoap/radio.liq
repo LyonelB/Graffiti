@@ -1,5 +1,5 @@
 #!/usr/bin/liquidsoap
-set("log.file.path", "/log/radio.log")
+set("log.file.path", "/home/pi/stream/radio.log")
 set("frame.audio.samplerate",48000)
 
 stream = input.alsa(device="plughw:1,0", bufferize = true)
