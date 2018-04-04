@@ -37,7 +37,7 @@
     $ sudo chmod +x /etc/liquidsoap/radio.liq
     $ mkdir stream
     $ touch stream/radio.log
-    $ chown -R pi stream/radio.log
+    $ sudo chown -R pi /home/pi/stream/radio.log
     
 ### Supervisor
 
