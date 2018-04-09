@@ -1,13 +1,12 @@
 ## Compilation de Liquidsoap et prise en charge MP3 et AAC+ (HE AAC V2)   
-   
     $ sudo apt-get update
     $ sudo apt-get upgrade
     $ sudo nano /boot/config.txt
 
 Ajoutez les deux lignes suivantes :
 
-    dtoverlay=pi3-disable-bt
-    dtoverlay=pi3-disable-wifi
+   dtoverlay=pi3-disable-bt
+   dtoverlay=pi3-disable-wifi
     
 Et modifier la ligne "dtparam=audio=on" par :
 
