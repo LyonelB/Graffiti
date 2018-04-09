@@ -4,9 +4,9 @@
     $ sudo nano /boot/config.txt
 
 Ajoutez les deux lignes suivantes :
-
-   dtoverlay=pi3-disable-bt
-   dtoverlay=pi3-disable-wifi
+    
+    dtoverlay=pi3-disable-bt
+    dtoverlay=pi3-disable-wifi
     
 Et modifier la ligne "dtparam=audio=on" par :
 
