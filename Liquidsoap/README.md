@@ -1,4 +1,4 @@
-# Compilation de Liquidsoap et prise en charge MP3 et AAC+ (HE AAC V2)   
+## Compilation de Liquidsoap et prise en charge MP3 et AAC+ (HE AAC V2)   
    
     $ sudo apt-get update
     $ sudo apt-get upgrade
