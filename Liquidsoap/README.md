@@ -1,5 +1,16 @@
     $ sudo apt-get update
     $ sudo apt-get upgrade
+    $ sudo nano /boot/config.txt
+
+Ajoutez les deux lignes suivantes :
+
+    dtoverlay=pi3-disable-bt
+    dtoverlay=pi3-disable-wifi
+    
+Et modifier la ligne "dtparam=audio=on" par :
+
+    dtparam=audio=off
+
     $ sudo apt-get install dh-autoreconf libtool libtool-bin git   
     $ mkdir src && cd src
     $ git clone https://github.com/Opendigitalradio/fdk-aac.git
