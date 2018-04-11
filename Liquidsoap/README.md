@@ -44,7 +44,7 @@ Et modifier la ligne "dtparam=audio=on" par :
     $ sudo ln -s /home/liquidsoap/.opam/system/bin/liquidsoap /usr/bin/liquidsoap
     $ sudo mkdir /etc/liquidsoap
     $ cd /etc/liquidsoap
-    $ wget https://raw.githubusercontent.com/LyonelB/Graffiti/master/Liquidsoap/radio.liq
+    $ sudo wget https://raw.githubusercontent.com/LyonelB/Graffiti/master/Liquidsoap/radio.liq
     $ cd
     $ sudo chmod +x /etc/liquidsoap/radio.liq
     $ mkdir stream
