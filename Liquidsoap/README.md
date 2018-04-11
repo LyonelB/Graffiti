@@ -36,7 +36,7 @@ Et modifier la ligne "dtparam=audio=on" par :
     $ opam depext taglib mad lame vorbis cry pulseaudio liquidsoap fdkaac ladspa shine
     <n>
     $ exit
-    $ sudo apt-get install libmp3lame-ocaml-dev libtaglib-ocaml-dev libalsa-ocaml-dev libpulse-ocaml-dev libmad-ocaml-dev libcry-ocaml-dev libvorbis-ocaml-dev libogg-ocaml-dev libopus-o caml-dev ladspa-sdk libshine-dev
+    $ sudo apt-get install libmp3lame-ocaml-dev libtaglib-ocaml-dev libalsa-ocaml-dev libpulse-ocaml-dev libmad-ocaml-dev libcry-ocaml-dev libvorbis-ocaml-dev libogg-ocaml-dev libopus-ocaml-dev ladspa-sdk libshine-dev
     $ su liquidsoap
     $ opam install lame pulseaudio mad alsa taglib cry opus liquidsoap fdkaac ladspa shine
     <y>
