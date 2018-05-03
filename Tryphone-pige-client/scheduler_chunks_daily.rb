@@ -3,6 +3,8 @@ require 'tryphon-pige-client'
 Pige::Client.box_url = "http://pigebox.local"
 include Pige::Client
 
+system "rm -rf /home/graffiti/Bureau/podcast/*"
+
 Pige::Client::Chunk.destroy_all :older_than => 3.days.ago
 
 ChunkScheduler.define do |schedule|
