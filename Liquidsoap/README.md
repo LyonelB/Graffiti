@@ -46,6 +46,8 @@ Et modifier la ligne "dtparam=audio=on" par :
     $ cd /etc/liquidsoap
     $ sudo wget https://raw.githubusercontent.com/LyonelB/Graffiti/master/Liquidsoap/radio.liq
     $ cd
+    $ sudo nano /etc/liquidsoap/radio.liq
+    <modifier les lignes començant par "host" et "password"; enregistrez et quittez>
     $ sudo chmod +x /etc/liquidsoap/radio.liq
     $ mkdir stream
     $ touch stream/radio.log
