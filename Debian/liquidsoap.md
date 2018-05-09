@@ -1,5 +1,6 @@
 ## Compilation de Liquidsoap et prise en charge MP3 et AAC+ (HE AAC V2)   
 Installation sur un pc avec Debian Stretch sans interface graphique. Utilisateur : debian
+
     $ su
     $ apt-get update
     $ apt-get upgrade
