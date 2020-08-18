@@ -19,6 +19,7 @@ Sur Debian Stretch Mate
     $ ruby -v #pour vérifier la version de ruby
     $ gem install tryphon-pige-client
     $ wget https://raw.githubusercontent.com/LyonelB/Graffiti/master/Tryphone-pige-client/scheduler_chunks_daily.rb
+    $ wget https://raw.githubusercontent.com/LyonelB/Graffiti/master/Tryphone-pige-client/normalize.rb
     $ mkdir /home/graffiti/Bureau/podcast
     
 # Crontab
@@ -27,4 +28,5 @@ Sur Debian Stretch Mate
     
 Ajouter la ligne suivante :
 
-    0 6 * * * /home/graffiti/.rbenv/versions/2.1.10/bin/ruby  /home/graffiti/scheduler_chunks_daily.rb 2>&1 | logger -t scheduler -i
+    0 6 * * * /home/debian/.rbenv/versions/2.1.10/bin/ruby  /home/debian/scheduler_chunks_daily.rb 2>&1 | logger -t scheduler -i
+    0 8 * * * /home/debian/.rbenv/versions/2.1.10/bin/ruby  /home/debian/normalize.rb 2>&1 | logger -t scheduler -i
